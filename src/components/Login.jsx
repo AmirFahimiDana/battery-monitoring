@@ -1,28 +1,42 @@
-
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import * as React from "react";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+// import VisibilityIcon from "@mui/icons-material/Visibility";
+// import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import TranslateIcon from "@mui/icons-material/Translate";
+import loginlogo from "../assets/abstract-design-1.5x.png";
+import logo from "../assets/Logo.png";
+import styles from "./login.module.css";
+import { red } from "@mui/material/colors";
+//menu button imports
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
+// navigate user after Login
+// import { useNavigate } from "react-router-dom";
+import { FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput } from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 function Copyright(props) {
     return (
-        <Typography variant="body2" color="text.secondary" align="center" {...props}>
-            {'Copyright © '}
-            <Link color="inherit" href="https://mui.com/">
-                Your Website
-            </Link>{' '}
+        <Typography
+            variant="body2"
+            color="text.secondary"
+            align="center"
+            {...props}
+        >
+            {"Copyright © "} Battery Management
             {new Date().getFullYear()}
-            {'.'}
+            {"."}
         </Typography>
     );
 }
@@ -31,71 +45,110 @@ function Copyright(props) {
 
 const defaultTheme = createTheme();
 
-export default function Login() {
+const Login = () => {
+
+    const red500 = red[500];
+    //const navigate = useNavigate();
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         console.log({
-            email: data.get('email'),
-            password: data.get('password'),
+            email: data.get("email"),
+            password: data.get("password"),
         });
+        //navigate("./projects");
     };
+
+    const [showPassword, setShowPassword] = React.useState(false);
+
+    const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+    const handleMouseDownPassword = (event) => {
+        event.preventDefault();
+    };
+
+
 
     return (
         <ThemeProvider theme={defaultTheme}>
-            <Grid container component="main" sx={{ height: '100vh' }}>
+            <Grid md={false} container component="main" sx={{ height: "100vh" }}>
                 <CssBaseline />
-                <Grid
-                    item
-                    xs={false}
-                    sm={4}
-                    md={7}
-                    sx={{
-                        backgroundImage: `url(${"src/assets/abstractdesign075x.png"}),url(${"src/assets/Rectangle7.png"})`,
-                        backgroundRepeat: 'no-repeat',
-                        backgroundColor: (t) =>
-                            t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-                        // backgroundSize: 'cover',
-                        backgroundPosition: 'bottom left,center',
-                    }}
-                />
-                <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+                <Grid item sm={5} md={4} sx={{ backgroundColor: "#FE4B24" }}>
+                    <Box className={styles.login_image}>
+                        <span className={styles.welcome_login}>
+                            Welcome <br /> Back!
+                        </span>
+                        <img src={loginlogo} alt="" />
+                    </Box>
+                </Grid>
+                <Grid item elevation={6} square="true" sx={{ marginLeft: "100px" }}>
                     <Box
                         sx={{
                             my: 8,
                             mx: 4,
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
                         }}
                     >
-                        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                            <LockOutlinedIcon />
-                        </Avatar>
+                        <img src={logo} alt="" />
                         <Typography component="h1" variant="h5">
-                            Sign in
+                            <b>Battery</b> Monitoring <br /> System
                         </Typography>
-                        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+
+                        <Typography
+                            component="span"
+                            variant="subtitle1"
+                            color="tertiary"
+                            size="small"
+                        >
+                            Welcome back! Please login to your account
+                        </Typography>
+
+                        <Box
+                            component="form"
+                            noValidate
+                            onSubmit={handleSubmit}
+                            sx={{ mt: 1, width: '316px' }}
+                        >
                             <TextField
                                 margin="normal"
                                 required
                                 fullWidth
                                 id="email"
-                                label="Email Address"
+                                label="Usename"
                                 name="email"
                                 autoComplete="email"
                                 autoFocus
+                                variant="filled"
                             />
-                            <TextField
-                                margin="normal"
-                                required
-                                fullWidth
-                                name="password"
-                                label="Password"
-                                type="password"
-                                id="password"
-                                autoComplete="current-password"
-                            />
+                            <FormControl sx={{ m: 1, width: '316px' }} variant="outlined">
+                                <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                                <OutlinedInput
+                                    margin="normal"
+                                    required
+                                    fullWidth
+                                    autoFocus
+                                    variant="filled"
+                                    id="outlined-adornment-password"
+                                    type={showPassword ? 'text' : 'password'}
+                                    endAdornment={
+                                        <InputAdornment position="end">
+                                            <IconButton
+                                                aria-label="toggle password visibility"
+                                                onClick={handleClickShowPassword}
+                                                onMouseDown={handleMouseDownPassword}
+                                                edge="end"
+                                            >
+                                                {showPassword ? <VisibilityOff /> : <Visibility />}
+                                            </IconButton>
+                                        </InputAdornment>
+                                    }
+                                    label="Password"
+                                    sx={{ background: "lightgrey", webkitTapHighlightColor: "transparent" }}
+                                />
+                            </FormControl>
                             <FormControlLabel
                                 control={<Checkbox value="remember" color="primary" />}
                                 label="Remember me"
@@ -104,27 +157,55 @@ export default function Login() {
                                 type="submit"
                                 fullWidth
                                 variant="contained"
-                                sx={{ mt: 3, mb: 2 }}
+                                sx={{ mt: 3, mb: 2, backgroundColor: red500 }}
                             >
-                                Sign In
+                                Login
                             </Button>
-                            <Grid container>
-                                <Grid item xs>
-                                    <Link href="#" variant="body2">
-                                        Forgot password?
-                                    </Link>
-                                </Grid>
-                                <Grid item>
-                                    <Link href="#" variant="body2">
-                                        {"Don't have an account? Sign Up"}
-                                    </Link>
-                                </Grid>
-                            </Grid>
+
                             <Copyright sx={{ mt: 5 }} />
                         </Box>
                     </Box>
                 </Grid>
+                <Grid item md={2}>
+                    <PopupState variant="popover" popupId="demo-popup-menu">
+                        {(popupState) => (
+                            <React.Fragment>
+                                <Button
+                                    variant="contained"
+                                    {...bindTrigger(popupState)}
+                                    startIcon={<TranslateIcon />}
+                                    sx={{
+                                        borderRadius: "20px",
+                                        height: "28px",
+                                        width: "96px",
+                                        backgroundColor: "#EFEFEF",
+                                        color: "#808080",
+                                        fontWeight: "400",
+                                        fontSize: "12px",
+                                        fontFamily: "Inter",
+                                        border: "none",
+                                        top: "51px",
+                                        left: "900px",
+                                        "&:hover": {
+                                            backgroundColor: "#EFEFEF",
+                                            color: "#808080"
+                                        },
+                                    }}
+                                >
+                                    English
+                                </Button>
+                                <Menu {...bindMenu(popupState)}>
+                                    <MenuItem onClick={popupState.close}>Persian</MenuItem>
+                                    <MenuItem onClick={popupState.close}>Arabic</MenuItem>
+                                    <MenuItem onClick={popupState.close}>France</MenuItem>
+                                </Menu>
+                            </React.Fragment>
+                        )}
+                    </PopupState>
+                </Grid>
             </Grid>
         </ThemeProvider>
     );
-}
+};
+
+export default Login;
