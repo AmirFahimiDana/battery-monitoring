@@ -1,85 +1,4 @@
-import * as React from "react";
-import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-// import VisibilityIcon from "@mui/icons-material/Visibility";
-// import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import TranslateIcon from "@mui/icons-material/Translate";
-import loginlogo from "../assets/abstract-design-1.5x.png";
-import logo from "../assets/Logo.png";
-import styles from "./login.module.css";
-import { red } from "@mui/material/colors";
-//menu button imports
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
-// navigate user after Login
-// import { useNavigate } from "react-router-dom";
-import {
-  FormControl,
-  IconButton,
-  InputAdornment,
-  InputLabel,
-  OutlinedInput,
-} from "@mui/material";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-import useMediaQuery from "@mui/material/useMediaQuery";
-
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "} Battery Management
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
-
-// TODO remove, this demo shouldn't need to reset the theme.
-
-const defaultTheme = createTheme();
-
-const Login = () => {
-  const red500 = red[500];
-  //const navigate = useNavigate();
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-    //navigate("./projects");
-  };
-
-  const [showPassword, setShowPassword] = React.useState(false);
-
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
-
-  return (
-    <ThemeProvider theme={defaultTheme}>
-
-      <Grid md={12} sm={12} container component="main" sx={{ height: "100vh" }}>
-        <CssBaseline />
-        
-        <Grid item sm={12} md={4} sx={{ backgroundColor: "#FE4B24" }}>
+<Grid item sm={12} md={4} sx={{ backgroundColor: "#FE4B24" }}>
           <Box className={styles.login_image}>
             <span className={styles.welcome_login}>
               Welcome <br /> Back!
@@ -88,7 +7,8 @@ const Login = () => {
           </Box>
         </Grid>
 
-        <Grid item md={6} square="true">
+
+        <Grid item square="true" sx={{ marginLeft: "100px" }}>
           <Box
             sx={{
               my: 8,
@@ -193,6 +113,9 @@ const Login = () => {
           </Box>
         </Grid>
 
+
+
+
         <Grid item md={2}>
           <PopupState variant="popover" popupId="demo-popup-menu">
             {(popupState) => (
@@ -211,7 +134,8 @@ const Login = () => {
                     fontSize: "12px",
                     fontFamily: "Inter",
                     border: "none",
-                 
+                    top: "51px",
+                    left: "900px",
                     "&:hover": {
                       backgroundColor: "#EFEFEF",
                       color: "#808080",
@@ -229,10 +153,3 @@ const Login = () => {
             )}
           </PopupState>
         </Grid>
-
-      </Grid>
-    </ThemeProvider>
-  );
-};
-
-export default Login;
