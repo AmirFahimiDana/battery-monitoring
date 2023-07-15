@@ -1,36 +1,26 @@
-import * as React from "react";
-import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import TranslateIcon from "@mui/icons-material/Translate";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import TranslateIcon from "@mui/icons-material/Translate";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Checkbox from "@mui/material/Checkbox";
+import { red } from "@mui/material/colors";
+import CssBaseline from "@mui/material/CssBaseline";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Grid from "@mui/material/Grid";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import * as React from "react";
 import loginlogo from "../assets/abstract-design-1.5x.png";
 import logo from "../assets/Logo.png";
 import styles from "./login.module.css";
-import { red } from "@mui/material/colors";
 //menu button imports
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
+import PopupState, { bindMenu, bindTrigger } from "material-ui-popup-state";
 // navigate user after Login
 // import { useNavigate } from "react-router-dom";
-import {
-    FormControl,
-    IconButton,
-    InputAdornment,
-    InputLabel,
-    OutlinedInput,
-} from "@mui/material";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-import useMediaQuery from "@mui/material/useMediaQuery";
 
 function Copyright(props) {
     return (

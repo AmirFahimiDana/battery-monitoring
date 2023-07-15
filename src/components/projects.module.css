@@ -1,0 +1,95 @@
+.project_sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 100%;
+    padding: 20px;
+}
+
+.pr_left_col {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.project_user {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.projects_pagination {
+    background-color: #ffffff;
+    padding: 12px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 50px;
+}
+
+.project_wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    -moz-column-gap: 20px;
+    column-gap: 20px;
+    column-gap: 20px;
+    width: 100%;
+    flex-wrap: wrap;
+    row-gap: 20px;
+}
+
+.project_wrapper .project_card {
+    flex-basis: calc(20% - 60px);
+    height: 230px;
+    border-radius: 20px;
+    display: flex;
+    flex-flow: column;
+}
+
+.project_wrapper .project_card .main_title {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 18px !important;
+    padding-Top: "0px";
+    padding-Bottom: "0px";
+    color: #000000
+}
+
+.project_wrapper .project_card .sub_title {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+    padding-Top: "0px";
+    padding-Bottom: "0px";
+    color: #BABABA
+}
+
+.project_wrapper .add_new_project {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center !important;
+    height: 100%;
+    width: 100%;
+    padding: 15px;
+}
+
+.project_wrapper .add_new_project .add_new_icon {
+    color: black;
+    background: unset;
+}
+
+.project_wrapper .add_new_project .add_new_icon svg {
+    font-size: 53px;
+}
+
+.project_wrapper .add_new_project .card_content {
+    flex: 0;
+}
